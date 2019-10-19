@@ -37,3 +37,6 @@ sudo tail /var/log/mongodb/mongod.log
 **Documentation**
 
 - [MongoDB](https://docs.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/)
+  Testing
+- [Mocha](https://mochajs.org/)

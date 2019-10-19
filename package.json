@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/aidan-mcbride/nn-mongo-db#readme",
   "dependencies": {
+    "mocha": "^6.2.2",
     "mongoose": "^5.7.5"
   }
 }
