@@ -1,7 +1,10 @@
 const mongoose = require("mongoose");
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost/testaroo");
+mongoose.connect("mongodb://localhost/testaroo", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // Detect when connection has been made.
 mongoose.connection
