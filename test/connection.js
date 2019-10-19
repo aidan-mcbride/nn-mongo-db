@@ -1,16 +1,23 @@
 const mongoose = require("mongoose");
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost/testaroo", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// use ES6 Promises
+mongoose.Promise = global.Promise;
 
-// Detect when connection has been made.
-mongoose.connection
-  .once("open", function() {
-    console.log("Connection has been made, now make fireworks");
-  })
-  .on("error", error => {
-    console.info("Connection error:", error);
+// Connect to database *before* tests run
+before(done => {
+  // Connect to MongoDB
+  mongoose.connect("mongodb://localhost/testaroo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   });
+
+  // Detect when connection has been made.
+  mongoose.connection
+    .once("open", function() {
+      console.info("🎉 Connection has been made");
+      done();
+    })
+    .on("error", error => {
+      console.info("Connection error:", error);
+    });
+});
