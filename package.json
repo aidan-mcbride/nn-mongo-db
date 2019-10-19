@@ -1,0 +1,23 @@
+{
+  "name": "nn-mongo-db",
+  "version": "1.0.0",
+  "description": "Net Ninja MongoDB Tutorial Series",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aidan-mcbride/nn-mongo-db.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aidan-mcbride/nn-mongo-db/issues"
+  },
+  "homepage": "https://github.com/aidan-mcbride/nn-mongo-db#readme",
+  "dependencies": {
+    "mongoose": "^5.7.5"
+  }
+}
