@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 // Connect to database *before* tests run
+// basically a fixture/setup
 before(done => {
   // Connect to MongoDB
   mongoose.connect("mongodb://localhost/testaroo", {
@@ -20,4 +21,12 @@ before(done => {
     .on("error", error => {
       console.info("Connection error:", error);
     });
+});
+
+// Drop characters collection before each test
+beforeEach(done => {
+  // Drop collection
+  mongoose.connection.collections.mariochars.drop(() => {
+    done();
+  });
 });
