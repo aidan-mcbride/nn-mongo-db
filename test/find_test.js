@@ -2,16 +2,16 @@ const assert = require("assert");
 
 const MarioChar = require("../models/mariochar");
 
-var char;
-
-beforeEach(done => {
-  char = new MarioChar({
-    name: "Mario"
-  });
-  char.save().then(() => done());
-});
-
 describe("Find records", function() {
+  var char;
+
+  beforeEach(done => {
+    char = new MarioChar({
+      name: "Mario"
+    });
+    char.save().then(() => done());
+  });
+
   it("Find one record from the database", function(done) {
     MarioChar.findOne({ name: "Mario" }).then(result => {
       assert(result.name === "Mario");
