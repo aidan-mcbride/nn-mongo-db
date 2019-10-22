@@ -9,7 +9,8 @@ before(done => {
   // Connect to MongoDB
   mongoose.connect("mongodb://localhost/testaroo", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
   });
 
   // Detect when connection has been made.
