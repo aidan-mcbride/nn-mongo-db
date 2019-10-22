@@ -7,7 +7,8 @@ describe("Updating records", function() {
 
   beforeEach(done => {
     char = new MarioChar({
-      name: "Mario"
+      name: "Mario",
+      weight: 50
     });
     char.save().then(() => done());
   });
@@ -22,5 +23,16 @@ describe("Updating records", function() {
         });
       }
     );
+  });
+
+  it("Increments weight of all records by one", done => {
+    // $inc is mongodb update operator
+    // https://docs.mongodb.com/manual/reference/operator/update/inc/
+    MarioChar.updateMany({}, { $inc: { weight: 1 } }).then(() => {
+      MarioChar.findOne({ name: "Mario" }).then(result => {
+        assert(result.weight === 51);
+        done();
+      });
+    });
   });
 });
